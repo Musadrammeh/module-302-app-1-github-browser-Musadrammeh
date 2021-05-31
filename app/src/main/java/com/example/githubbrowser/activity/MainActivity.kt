@@ -29,6 +29,7 @@ class MainActivity : AppCompatActivity(), TextView.OnEditorActionListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        
 
         // Initialiizing the views
         editTextUsername = findViewById(R.id.editTextUsername)

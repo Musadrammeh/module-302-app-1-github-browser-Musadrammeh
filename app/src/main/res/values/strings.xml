@@ -10,4 +10,5 @@
     <string name="try_another_user">Try another user</string>
     <string name="public_repo">Public</string>
     <string name="private_repo">Private</string>
+    <string name="number_of_repos">%1$d Repositories</string>
 </resources>
