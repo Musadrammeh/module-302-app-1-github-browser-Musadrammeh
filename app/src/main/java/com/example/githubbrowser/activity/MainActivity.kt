@@ -42,6 +42,14 @@ class MainActivity : AppCompatActivity(), TextView.OnEditorActionListener {
         editTextUsername?.setOnEditorActionListener(this)
     }
 
+    override fun onResume() {
+        super.onResume()
+
+        editTextUsername?.setText("")
+    }
+
+
+
     override fun onEditorAction(v: TextView?, actionId: Int, event: KeyEvent?): Boolean {
         return if(v == editTextUsername){
 
@@ -65,8 +73,6 @@ class MainActivity : AppCompatActivity(), TextView.OnEditorActionListener {
                 getRepositoriesForUsername(username)
             }
 
-
-
             true
         } else {
             false
@@ -83,6 +89,9 @@ class MainActivity : AppCompatActivity(), TextView.OnEditorActionListener {
 
                         // Show an error message to the user
                         Toast.makeText(this@MainActivity, R.string.unable_to_get_repo, Toast.LENGTH_LONG).show()
+
+                        //Hide the progressbar
+                        progressBar?.visibility = View.INVISIBLE
                     }
 
                     override fun onResponse(
@@ -91,7 +100,7 @@ class MainActivity : AppCompatActivity(), TextView.OnEditorActionListener {
                     ) {
 
                         //Hide the progressbar
-                        progressBar?.visibility = View.VISIBLE
+                        progressBar?.visibility = View.INVISIBLE
 
                         if(response.isSuccessful){
 
